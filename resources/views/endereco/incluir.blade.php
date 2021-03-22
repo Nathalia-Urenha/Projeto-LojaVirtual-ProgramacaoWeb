@@ -5,13 +5,11 @@
 <div class="container">
 
     <form action="" method="POST">
-
-        @include('cliente.__form')
+        @csrf
+        @include('endereco.__form')
         <div class="center">
-            <button type="submit" class="btn btn-primary btn-lg">Excluir</button>
+            <button type="submit" class="btn btn-primary btn-lg">Salvar</button>
         </div>
     </form>
-
 </div>
-
 @endsection

@@ -11,8 +11,24 @@
 |
 */
 
-Route::get('/usuario/incluir', function () {
+Route::get('/cliente/incluir', function () {
     return view('cliente.incluir');
+});
+
+Route::get('/cliente/alterar', function () {
+    return view('cliente.alterar');
+});
+
+Route::get('/cliente/excluir', function () {
+    return view('cliente.excluir');
+});
+
+Route::get('/cliente/consultar', function () {
+    return view('cliente.consultar');
+});
+
+Route::get('/endereco/incluir', function () {
+    return view('endereco.incluir');
 });
 
 Auth::routes();

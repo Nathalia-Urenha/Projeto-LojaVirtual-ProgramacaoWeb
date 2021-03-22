@@ -18,11 +18,11 @@
 <body class="app sidebar-mini rtl">
     
     <header>
-        @include('layouts.header')
+        @include('layouts.cliente.header')
     </header>
 
     <aside>
-        @include('layouts.sidebar')
+        @include('layouts.cliente.sidebar')
     </aside>
 
     <main class="app-content">

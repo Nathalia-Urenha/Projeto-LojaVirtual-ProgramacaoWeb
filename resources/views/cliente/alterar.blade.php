@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.adm.app')
 
 @section('content')
 
@@ -7,6 +7,9 @@
     <form action="" method="POST">
 
         @include('cliente.__form')
+        <div class="center">
+            <button type="submit" class="btn btn-primary btn-lg">Alterar</button>
+        </div>
 
     </form>
 

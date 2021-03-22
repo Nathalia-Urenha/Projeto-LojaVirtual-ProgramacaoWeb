@@ -1,3 +1,18 @@
+<h2>Cadastro</h2>
+<h4>Dados Pessoais:</h4>
+
+<div class="row">
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-12">
+        <div class="form-group">
+            <label for="codigo" class="control-label">Código</label>
+            <input type="text"
+                name="codigo"
+                id="codigo"
+                class="form-control"/>
+        </div>
+    </div>
+</div>
+
 <div class="row">
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-12">
         <div class="form-group">
@@ -49,7 +64,7 @@
 <div class="row">
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-12">
         <div class="form-group">
-            <label for="senha" class="control-label">CPF:</label>
+            <label for="senha" class="control-label">CPF</label>
             <input type="text"
                 name="cpf"
                 id="cpf"
@@ -59,4 +74,3 @@
 </div>
 
 
-<!--fazer para todos os atributos da classe-->
