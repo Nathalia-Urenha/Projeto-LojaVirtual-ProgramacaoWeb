@@ -7,7 +7,7 @@
         <div class="tile">
             <div class="tile-body">
         </div>
-        <form action="{{url('/cliente/salvar')}}" method="POST">
+        <form action="{{url('/cliente/alterar', $registro->id)}}" method="POST">
             @csrf
             @include('cliente.__form')
             <div class="center">

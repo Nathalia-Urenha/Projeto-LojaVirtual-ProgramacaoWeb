@@ -20,7 +20,8 @@ class ClienteController extends Controller
     //retorna a pagina de listagem de clientes
     public function index(Request $request)
     {
-        $registros = $this->repository->all();
+       $registros = $this->repository->paginate(10);
+
         return view('cliente.index', [
             'registros' => $registros,
         ]);
@@ -35,7 +36,10 @@ class ClienteController extends Controller
     //salvar o registro de um novo cliente
     public function create(Request $request)
     {
-        return view('cliente.index'); //aqui
+        $data = $request->all();
+        $this->repository->create($data);
+        return redirect()->route('cliente.listar')->with('success','Registro Cadastrado com sucesso!');;
+        
     }
 
     //retorna o registro de um cliente para a alteração dos dados
@@ -83,18 +87,43 @@ class ClienteController extends Controller
     //alterar no banco o registro do cliente que modificado pelo usuario - tela
     public function save(Request $request, $id)
     {
-        return view('cliente.listar');
+        $data = $request->all();
+
+        $registro = $this->repository->find($id);
+        
+        $registro->update($data);
+        
+        return redirect()->route('cliente.listar')->with('success','Registro Alterado com sucesso!');
     }
 
     //excluir no banco o registro do autor
     public function excluir(Request $request, $id)
     {
-        return view('cliente.listar');
+        $registro = $this->repository->find($id);
+        $registro->delete();
+        return redirect()->route('cliente.listar')->with('success','Registro Excluído com sucesso!');
     }
 
     //cancela a operação do usuario
     public function cancel()
     {
         return redirect()->route('cliente.listar');
+    }
+
+    //buscar
+    public function search(Request $request){
+        
+        $filters = $request->all();
+        $registros = $this->repository->search($request->nome);
+        return view('cliente.index', [
+            'registros' => $registros,
+            'filters' => $filters,
+        ]);
+
+    }
+
+    public function home()
+    {
+        return view('cliente.home');
     }
 }
