@@ -30,3 +30,24 @@ Route::any('search_cliente', 'ClienteController@search')->name('search_cliente')
 Auth::routes();
 
 Route::get('/cliente/home', 'ClienteController@home')->name('cliente.home');
+
+Route::get('/endereco/listar', 'EnderecoController@index')->name('endereco.listar');
+Route::get('/endereco/incluir', 'enderecoController@new')->name('endereco.incluir');
+Route::get('/endereco/cancelar', 'enderecoController@cancel')->name('endereco.cancelar');
+
+
+Route::get('/endereco/alterar/{id}', 'EnderecoController@update')->name('endereco.update');
+Route::get('/endereco/excluir/{id}', 'EnderecoController@delete')->name('endereco.delete');
+Route::get('/endereco/consultar/{id}', 'EnderecoController@consult')->name('endereco.consultar');
+
+Route::post('/endereco/salvar', 'EnderecoController@create')->name('endereco.salvar');
+Route::post('/endereco/alterar/{id}', 'EnderecoController@save')->name('endereco.alterar');
+Route::post('/endereco/excluir/{id}', 'EnderecoController@excluir')->name('endereco.excluir');
+
+Route::any('search_endereco', 'EnderecoController@search')->name('search_endereco');
+
+
+Auth::routes();
+
+Route::get('/endereco/home', 'EnderecoController@home')->name('endereco.home');
+

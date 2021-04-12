@@ -1,3 +1,4 @@
+@include('layouts.validacao')
 <h4>Dados do Endereço:</h4>
 <!--Formulário-->
 <form>
@@ -9,8 +10,13 @@
                 <input type="text"
                     name="cep"
                     id="cep"
-                    class="form-control"
-                    required/>
+                    value="{{isset($registro->cep) ? $registro->cep : ''}}"
+                    class="form-control @error('cep') is-invalid @enderror"/>
+                    @error('cep')
+                    <div class="invalid-feedback">
+                        <span ><strong>{{ $message }}</strong></span>
+                    </div>
+                    @enderror
             </div>
         </div>
     </div>
@@ -38,7 +44,7 @@
                 $("#logradouro").val(resposta.logradouro);
                 $("#bairro").val(resposta.bairro);
                 $("#cidade").val(resposta.localidade);
-                $("#uf").val(resposta.uf);
+                $("#estado").val(resposta.uf);
                 //Vamos incluir para que o Número seja focado automaticamente
                 //melhorando a experiência do usuário
                 $("#numero").focus();
@@ -54,8 +60,13 @@
                 <input type="text"
                     name="logradouro"
                     id="logradouro"
-                    class="form-control"
-                    required/>
+                    value="{{isset($registro->logradouro) ? $registro->logradouro : ''}}"
+                    class="form-control @error('logradouro') is-invalid @enderror"/>
+                    @error('logradouro')
+                    <div class="invalid-feedback">
+                        <span ><strong>{{ $message }}</strong></span>
+                    </div>
+                    @enderror
             </div>
         </div>
     </div>
@@ -67,8 +78,13 @@
                 <input type="text"
                     name="numero"
                     id="numero"
-                    class="form-control"
-                    required/>
+                    value="{{isset($registro->numero) ? $registro->numero : ''}}"
+                    class="form-control @error('numero') is-invalid @enderror"/>
+                    @error('numero')
+                    <div class="invalid-feedback">
+                        <span ><strong>{{ $message }}</strong></span>
+                    </div>
+                    @enderror
             </div>
         </div>
     </div>
@@ -80,8 +96,13 @@
                 <input type="text"
                     name="complemento"
                     id="complemento"
-                    class="form-control"
-                    required/>
+                    value="{{isset($registro->complemento) ? $registro->complemento : ''}}"
+                    class="form-control @error('complemento') is-invalid @enderror"/>
+                    @error('complemento')
+                    <div class="invalid-feedback">
+                        <span ><strong>{{ $message }}</strong></span>
+                    </div>
+                    @enderror
             </div>
         </div>
     </div>
@@ -93,8 +114,13 @@
                 <input type="text"
                     name="bairro"
                     id="bairro"
-                    class="form-control"
-                    required/>
+                    value="{{isset($registro->bairro) ? $registro->bairro : ''}}"
+                    class="form-control @error('bairro') is-invalid @enderror"/>
+                    @error('bairro')
+                    <div class="invalid-feedback">
+                        <span ><strong>{{ $message }}</strong></span>
+                    </div>
+                    @enderror
             </div>
         </div>
     </div>
@@ -106,8 +132,13 @@
                 <input type="text"
                     name="cidade"
                     id="cidade"
-                    class="form-control"
-                    required/>
+                    value="{{isset($registro->cidade) ? $registro->cidade : ''}}"
+                    class="form-control @error('cidade') is-invalid @enderror"/>
+                    @error('cidade')
+                    <div class="invalid-feedback">
+                        <span ><strong>{{ $message }}</strong></span>
+                    </div>
+                    @enderror
             </div>
         </div>
     </div>
@@ -115,36 +146,18 @@
     <div class="row">
         <div class="col-xs-12 col-sm-6 col-md-6 col-lg-12">
             <div class="form-group">
-                <label for="uf" class="control-label">Estado</label>
-                <select id="uf" class="form-control">
-                    <option value="AC">Acre</option>
-                    <option value="AL">Alagoas</option>
-                    <option value="AP">Amapá</option>
-                    <option value="AM">Amazonas</option>
-                    <option value="BA">Bahia</option>
-                    <option value="CE">Ceará</option>
-                    <option value="DF">Distrito Federal</option>
-                    <option value="ES">Espírito Santo</option>
-                    <option value="GO">Goiás</option>
-                    <option value="MA">Maranhão</option>
-                    <option value="MT">Mato Grosso</option>
-                    <option value="MS">Mato Grosso do Sul</option>
-                    <option value="MG">Minas Gerais</option>
-                    <option value="PA">Pará</option>
-                    <option value="PB">Paraíba</option>
-                    <option value="PR">Paraná</option>
-                    <option value="PE">Pernambuco</option>
-                    <option value="PI">Piauí</option>
-                    <option value="RJ">Rio de Janeiro</option>
-                    <option value="RN">Rio Grande do Norte</option>
-                    <option value="RS">Rio Grande do Sul</option>
-                    <option value="RO">Rondônia</option>
-                    <option value="RR">Roraima</option>
-                    <option value="SC">Santa Catarina</option>
-                    <option value="SP">São Paulo</option>
-                    <option value="SE">Sergipe</option>
-                    <option value="TO">Tocantins</option>
+                <label for="estado" class="control-label">Estado</label>
+                <select name="estado" 
+                        id="estado"
+                        class="form-control">
+                    <option value="AC"<?php  if(isset($registro->estado)){echo selected( 'AC', $registro->estado );}?>>Acre</option>
+                    <option value="SP"<?php  if(isset($registro->estado)){echo selected( 'SP', $registro->estado );}?>>São Paulo</option>
                 </select>
             </div>
         </div>
     </div>
+
+<?php
+function selected( $value, $selected ){
+    return $value==$selected ? ' selected="selected"' : '';
+}

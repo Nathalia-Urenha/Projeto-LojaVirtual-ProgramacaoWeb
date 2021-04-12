@@ -9,7 +9,11 @@ class Cliente extends Model
     protected $table = "clientes";
 
     protected $fillable = [
-        'nome', 'email', 'senha', 'telefone', 'cpf'
+        'nome', 
+        'email', 
+        'senha', 
+        'telefone', 
+        'cpf'
     ];
 
     public function search($filter = null){

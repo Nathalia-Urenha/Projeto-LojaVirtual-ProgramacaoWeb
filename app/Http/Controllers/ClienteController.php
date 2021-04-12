@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\models\Cliente;
 use Illuminate\Http\Request;
+use App\Http\Requests\ClienteRequest;
 
 
 class ClienteController extends Controller
@@ -34,7 +35,7 @@ class ClienteController extends Controller
     }
 
     //salvar o registro de um novo cliente
-    public function create(Request $request)
+    public function create(ClienteRequest $request)
     {
         $data = $request->all();
         $this->repository->create($data);
@@ -85,7 +86,7 @@ class ClienteController extends Controller
     }
 
     //alterar no banco o registro do cliente que modificado pelo usuario - tela
-    public function save(Request $request, $id)
+    public function save(ClienteRequest $request, $id)
     {
         $data = $request->all();
 

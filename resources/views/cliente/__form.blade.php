@@ -1,3 +1,4 @@
+@include('layouts.validacao')
 <h4>Dados Pessoais:</h4>
 
 <div class="row">

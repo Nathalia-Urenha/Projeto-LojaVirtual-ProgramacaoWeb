@@ -42,24 +42,28 @@
                     <table class="table table-striped table-bordered table-hover cf">
                         <thead class="cf">
                             <tr>
-                                <th>Codigo</th>
-                                <th>Nome</th>
-                                <th>E-mail</th>
-                                <th>Celular</th>
-                                <th>Ações</th>
+                                <th style="font-weight: bold; text-align: center;">Codigo</th>
+                                <th style="font-weight: bold; text-align: center;">Nome</th>
+                                <th style="font-weight: bold; text-align: center;">E-mail</th>
+                                <th style="font-weight: bold; text-align: center;">Celular</th>
+                                <th style="font-weight: bold; text-align: center;">Endereço</th>
+                                <th style="font-weight: bold; text-align: center;">Ações</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach($registros as $registro)
                                <tr>
-                                   <td data-title="Id" >{{$registro->id}}</td>
-                                   <td data-title="Nome">{{$registro->nome}}</td>
-                                   <td data-title="E-mail">{{$registro->email}}</td>
-                                   <td data-title="Celular">{{$registro->telefone}}</td>
-                                   <td data-title="Ações">
-                                       <a class="btn btn-info btn-sm" href="{{url('cliente/alterar', $registro->id)}}"><i class="fa fa-pencil"></i></a>
-                                       <a class="btn btn-danger btn-sm" href="{{url('cliente/excluir', $registro->id)}}"><i class="fa fa-trash"></i></a>
-                                       <a class="btn btn-warning btn-sm" href="{{url('cliente/consultar', $registro->id)}}"><i class="fa fa-address-book"></i></a>
+                                   <td data-title="Id"  style="text-align: center" >{{$registro->id }}</td>
+                                   <td data-title="Nome"  style="text-align: center">{{$registro->nome}}</td>
+                                   <td data-title="E-mail"  style="text-align: center">{{$registro->email}}</td>
+                                   <td data-title="Celular"  style="text-align: center">{{$registro->telefone}}</td>
+                                   <td data-title="Endereço"  style="text-align: center"> <!--colocar o id_endereco do endereço aqui-->              
+                                       <a class="btn btn-primary btn-sm"  style="text-align: center" href="{{('endereco/consultar'), $registro->id_endereco}}"><i class="fa fa-map-o" aria-hidden="true"></i>
+                                    </td>
+                                    <td data-title="Ações"  style="text-align: center">
+                                       <a class="btn btn-info btn-sm"  style="text-align: center" href="{{url('cliente/alterar', $registro->id)}}"><i class="fa fa-pencil"></i></a>
+                                       <a class="btn btn-danger btn-sm"  style="text-align: center" href="{{url('cliente/excluir', $registro->id)}}"><i class="fa fa-trash"></i></a>
+                                       <a class="btn btn-warning btn-sm"  style="text-align: center" href="{{url('cliente/consultar', $registro->id)}}"><i class="fa fa-address-book"></i></a>
                                    </td>
                                </tr>
                             @endforeach

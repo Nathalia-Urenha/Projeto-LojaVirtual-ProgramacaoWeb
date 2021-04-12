@@ -15,6 +15,7 @@
 
     <link href="{{ asset('lib/fontawesome/css/font-awesome.min.css') }}" rel="stylesheet">
     <link href="{{ asset('lib/fontawesome/css/font-awesome.css') }}" rel="stylesheet">
+
 </head>
 <body class="app sidebar-mini rtl">
     
