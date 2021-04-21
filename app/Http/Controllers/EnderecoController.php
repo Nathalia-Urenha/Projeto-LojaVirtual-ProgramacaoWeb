@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\models\Endereco;
+use App\models\Cliente;
 use Illuminate\Http\Request;
 use App\Http\Requests\EnderecoRequest;
 
@@ -35,11 +36,42 @@ class EnderecoController extends Controller
     }
 
     //salvar o registro de um novo Endereco
-    public function create(EnderecoRequest $request)
+    public function create(Request $request)
     {
-        $data = $request->all();
-        $this->repository->create($data);
-        return redirect()->route('endereco.listar')->with('success','Registro Cadastrado com sucesso!');;
+        //salvar o endereço primeiro e retornar um objeto
+       //   dd($request->all()); //mostra o que vem no request  (os dados de cliente e endereço)
+      //  $data = $request->all();
+      //  $id = $this->repository->create($data)->id; // retorna id
+        //$this->repository->create($data);
+
+
+        $endereco = new Endereco([
+            'cep'=> $request['cep'],
+            'logradouro' => $request['logradouro'],
+            'numero' => $request['numero'],
+            'complemento'=>$request['complemento'],
+            'bairro' => $request['bairro'],
+            'cidade' => $request['cidade'], 
+            'estado' => $request['estado'],
+        ]);
+
+        $endereco->save();
+        
+        $id = $endereco->getKey('id'); //certo
+        //dd($id); // ta pegando o id do endereço
+
+        $cliente = new Cliente([
+            'nome'=> $request['nome'],
+            'email' => $request['email'],
+            'senha' => $request['numero'],
+            'telefone' => $request['senha'],
+            'cpf' => $request['cpf'],
+            'endereco_id' => $id, //problema: nao ta armazenando o id na tabela
+        ]);
+        
+       $cliente->save();
+
+        return redirect()->route('cliente.listar')->with('success','Registro Cadastrado com sucesso!');
         
     }
 
@@ -86,10 +118,11 @@ class EnderecoController extends Controller
     }
 
     //alterar no banco o registro do Endereco que modificado pelo usuario - tela
-    public function save(EnderecoRequest $request, $id)
+    public function save(Request $request, $id)
     {
-        $data = $request->all();
+        $data = $request->all();//descobrir como pegar os campos dos atributos do objeto $cliente
 
+       
         $registro = $this->repository->find($id);
         
         $registro->update($data);
@@ -127,4 +160,6 @@ class EnderecoController extends Controller
     {
         return view('endereco.home');
     }
+
+    
 }

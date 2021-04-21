@@ -85,7 +85,6 @@
                 id="cpf"
                 value="{{isset($registro->cpf) ? $registro->cpf : ''}}"
                 class="form-control @error('cpf') is-invalid @enderror"/>
-
                 @error('cpf')
                 <div class="invalid-feedback">
                     <span ><strong>{{ $message }}</strong></span>
@@ -94,5 +93,7 @@
         </div>
     </div>
 </div>
+
+
 
 

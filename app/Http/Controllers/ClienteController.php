@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\models\Cliente;
+use App\models\Endereco;
 use Illuminate\Http\Request;
 use App\Http\Requests\ClienteRequest;
 
@@ -37,15 +38,18 @@ class ClienteController extends Controller
     //salvar o registro de um novo cliente
     public function create(ClienteRequest $request)
     {
+        
         $data = $request->all();
         $this->repository->create($data);
-        return redirect()->route('cliente.listar')->with('success','Registro Cadastrado com sucesso!');;
+
+        return redirect()->route('cliente.listar')->with('success','Registro Cadastrado com sucesso!');
         
     }
 
     //retorna o registro de um cliente para a alteração dos dados
     public function update($id)
     {
+
         $registro = $this->repository->find($id);
 
         if(!$registro){
@@ -58,8 +62,8 @@ class ClienteController extends Controller
     }
 
     //retorna o registro de um cliente para excluir do banco de dados
-    public function delete($id)
-    {
+    public function delete($id){
+    
         $registro = $this->repository->find($id);
 
         if(!$registro){
@@ -74,6 +78,7 @@ class ClienteController extends Controller
     //retorna o registro para consultar - ver o registro na tela
     public function consult($id)
     {
+    
         $registro = $this->repository->find($id);
 
         if(!$registro){

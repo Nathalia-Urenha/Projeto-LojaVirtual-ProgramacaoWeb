@@ -16,4 +16,8 @@ class Endereco extends Model
         'estado',
     ];
 
+   public function clientes(){
+       return $this->hasMany('App\models\Cliente', 'endereco_id');
+   }
+
 }

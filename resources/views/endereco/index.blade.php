@@ -42,7 +42,7 @@
                     <table class="table table-striped table-bordered table-hover cf">
                         <thead class="cf">
                             <tr>
-                                <th style="font-weight: bold; text-align: center;">Cliente</th>
+                                <th style="font-weight: bold; text-align: center;">Codigo</th>
                                 <th style="font-weight: bold; text-align: center;">CEP </th>
                                 <th style="font-weight: bold; text-align: center;">Logradouro</th>
                                 <th style="font-weight: bold; text-align: center;">Numero</th>
@@ -56,7 +56,7 @@
                         <tbody>
                             @foreach($registros as $registro)
                                <tr>
-                                   <td data-title="Cliente" style="text-align: center" ><!--colocar o nome do cliente aqui--></td>
+                                   <td data-title="Codigo" style="text-align: center" >{{$registro->id}}</td>
                                    <td data-title="CEP" style="text-align: center">{{$registro->cep}}</td>
                                    <td data-title="Logradouro" style="text-align: center">{{$registro->logradouro}}</td>
                                    <td data-title="Numero" style="text-align: center">{{$registro->numero}}</td>

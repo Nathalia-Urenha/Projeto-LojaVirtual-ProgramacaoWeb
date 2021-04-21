@@ -13,8 +13,19 @@ class Cliente extends Model
         'email', 
         'senha', 
         'telefone', 
-        'cpf'
+        'cpf',
+        'endereco_id'
     ];
+
+    protected $hidden=[
+        'create_at',
+        'update_at',
+    ];
+
+    public function endereco(){
+        return $this->belongsTo('App\models\Endereco', 'endereco_id');
+    }
+
 
     public function search($filter = null){
         $results = $this->where(function($query) use($filter) {

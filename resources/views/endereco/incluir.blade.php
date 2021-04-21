@@ -9,6 +9,7 @@
         </div>
         <form action="{{url('/endereco/salvar')}}" method="POST">
             @csrf
+            @include('cliente.__form')
             @include('endereco.__form')
             <div class="center">
                 <button type="submit" class="btn btn-primary btn-lg">Salvar</button>

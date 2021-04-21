@@ -58,7 +58,7 @@
                                    <td data-title="E-mail"  style="text-align: center">{{$registro->email}}</td>
                                    <td data-title="Celular"  style="text-align: center">{{$registro->telefone}}</td>
                                    <td data-title="Endereço"  style="text-align: center"> <!--colocar o id_endereco do endereço aqui-->              
-                                       <a class="btn btn-primary btn-sm"  style="text-align: center" href="{{('endereco/consultar'), $registro->id_endereco}}"><i class="fa fa-map-o" aria-hidden="true"></i>
+                                       <a class="btn btn-primary btn-sm"  style="text-align: center" href="{{url('endereco/alterar', $registro->endereco_id)}}"><i class="fa fa-map-o" aria-hidden="true"></i>
                                     </td>
                                     <td data-title="Ações"  style="text-align: center">
                                        <a class="btn btn-info btn-sm"  style="text-align: center" href="{{url('cliente/alterar', $registro->id)}}"><i class="fa fa-pencil"></i></a>
@@ -75,7 +75,7 @@
                         {{$registros->links()}}  
                     @endisset
                     
-                    <a class="btn btn-success btn-sm" href="{{url('cliente/incluir')}}">Incluir<i class="fa fa-plus-circle"></i></a>
+                    <a class="btn btn-success btn-sm" href="{{url('endereco/incluir')}}">Incluir<i class="fa fa-plus-circle"></i></a>
                 </div>
             </div>
         </div>
