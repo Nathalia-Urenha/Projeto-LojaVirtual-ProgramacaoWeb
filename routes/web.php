@@ -11,6 +11,17 @@
 |
 */
 
+Route::get('/imagem/{imagem}', 'ImageController@getImages')->name('imagem.get');
+Route::post('/store', 'ImageController@store')->name('imagem.store');
+Route::post('/imagem/excluir', 'ImageController@excluir')->name('imagem.excluir');
+
+
+Route::get('/usuario/listar', 'UsuarioController@index')->name('usuario.listar');
+Route::get('/usuario/incluir', 'UsuarioController@new')->name('usuario.incluir');
+Route::get('/usuario/cancelar', 'UsuarioController@cancel')->name('usuario.cancelar');
+
+
+
 Route::get('/cliente/listar', 'ClienteController@index')->name('cliente.listar');
 Route::get('/cliente/incluir', 'ClienteController@new')->name('cliente.incluir');
 Route::get('/cliente/cancelar', 'ClienteController@cancel')->name('cliente.cancelar');

@@ -79,7 +79,7 @@
 <div class="row">
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-12">
         <div class="form-group">
-            <label for="senha" class="control-label">CPF</label>
+            <label for="cpf" class="control-label">CPF</label>
             <input type="text"
                 name="cpf"
                 id="cpf"
