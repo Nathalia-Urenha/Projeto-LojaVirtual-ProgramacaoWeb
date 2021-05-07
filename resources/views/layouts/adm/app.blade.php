@@ -31,10 +31,10 @@
         @yield('content')
     </main>
 
-    <script src="{{ asset('lib/bootstrap/js/jquery-3.3.1.min.js') }}" defer></script>
-    <script src="{{ asset('lib/bootstrap/js/main.js') }}" defer></script>
-    <script src="{{ asset('lib/bootstrap/js/bootstrap.min.js') }}" defer></script>
-    <script src="{{ asset('lib/bootstrap/js/popper.min.js') }}" defer></script>
+    <script src="{{ asset('lib/bootstrap/js/jquery-3.3.1.min.js') }}" ></script>
+    <script src="{{ asset('lib/bootstrap/js/main.js') }}" ></script>
+    <script src="{{ asset('lib/bootstrap/js/bootstrap.min.js') }}" ></script>
+    <script src="{{ asset('lib/bootstrap/js/popper.min.js') }}" ></script>
 
     @yield('javascript')
 

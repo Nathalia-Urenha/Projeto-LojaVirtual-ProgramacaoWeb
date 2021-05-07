@@ -16764,7 +16764,7 @@ be a descendant of the grid when it is being dragged.
 #clickHereLeft{
   margin-left: 10%;
   cursor: pointer;
-  color: white;
+  color: white; 
   font-size: 17px;
   width: 100px;
   height: 45px;
@@ -16776,7 +16776,7 @@ be a descendant of the grid when it is being dragged.
 #clickHereRight{
   margin-left: 10%;
   cursor: pointer;
-  color: white;
+  color: white; 
   font-size: 17px;
   width: 100px;
   height: 45px;
@@ -16802,4 +16802,25 @@ be a descendant of the grid when it is being dragged.
   text-align: center;
   font-size: 14px;
   margin-top: 5px;
+}
+
+.avatar{
+  width: 70%;
+  display: block;
+  border-bottom: 50%;
+  height: auto;
+  margin: 0 auto;
+  border-radius: 50%;
+}
+
+.img-avatar{
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  vertical-align: none;
+  padding: 2%;
+  border: 1px solid #dee2e6;
+  max-width: 50%;
+  height: auto;
+  border-radius: 50%;
 }
