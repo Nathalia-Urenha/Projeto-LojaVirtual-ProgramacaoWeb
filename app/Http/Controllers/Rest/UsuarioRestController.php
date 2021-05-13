@@ -6,7 +6,7 @@ use App\User;
 use Illuminate\Http\Request;
 
 
-
+//usado na api
 class UsuarioRestController extends Controller
 {
     private $repository;

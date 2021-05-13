@@ -6,7 +6,7 @@ header('Access-Control-Allow-Methods: PUT, GET, POST, DELETE, OPTIONS');
 
 use Illuminate\Http\Request;
 
-
+//api
 
 /*
 |--------------------------------------------------------------------------

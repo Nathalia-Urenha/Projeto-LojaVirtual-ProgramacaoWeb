@@ -1,5 +1,6 @@
 <?php
 
+
 namespace App\Http\Controllers;
 
 use App\models\Cliente;
@@ -7,7 +8,7 @@ use App\models\Endereco;
 use Illuminate\Http\Request;
 use App\Http\Requests\ClienteRequest;
 
-
+//usado na api
 class ClienteController extends Controller
 {
     private $repository;
