@@ -61,6 +61,9 @@ class ImageController extends Controller
     }
 
     public function excluir(Request $request){
-
+        $foto = $request->get('image');
+        Storage::delete('img/normal/'.$foto);
+        Storage::delete('img/thumbnail/'.'_small_'.$foto);
+        return response()->json(array('nomeArquivo'=>'boy.png')); 
     }
 }

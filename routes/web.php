@@ -60,7 +60,7 @@ Route::post('/endereco/excluir/{id}', 'EnderecoController@excluir')->name('ender
 Route::any('search_endereco', 'EnderecoController@search')->name('search_endereco');
 
 
-Auth::routes();
+//Auth::routes();
 
-Route::get('/endereco/home', 'EnderecoController@home')->name('endereco.home');
+//Route::get('/endereco/home', 'EnderecoController@home')->name('endereco.home');
 

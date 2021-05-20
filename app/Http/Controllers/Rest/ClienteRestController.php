@@ -1,29 +1,35 @@
 <?php
 
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Rest;
 
+use App\Http\Controllers\Controller;
 use App\models\Cliente;
 use App\models\Endereco;
 use Illuminate\Http\Request;
 use App\Http\Requests\ClienteRequest;
+use Carbon\Carbon;
+use Symfony\Component\Console\Output\ConsoleOutput;
 
 //usado na api
-class ClienteController extends Controller
+class ClienteRestController extends Controller
 {
     private $repository;
     protected $request;
+    private $out;
 
-    public function __construct(Request $request, Cliente $cliente )
+    public function __construct(Request $request, Cliente $cliente, ConsoleOutput $out )
     {
         $this->repository = $cliente;
         $this->request = $request;
+        $this->out = $out;
     }
 
     //retorna a pagina de listagem de clientes
     public function index(Request $request)
     {
-       $registros = $this->repository->paginate(10);
+       $this->out->writeln("Hello from terminal");
+        $registros = $this->repository->paginate();
 
        return response()->json($registros);
     }
@@ -106,7 +112,7 @@ class ClienteController extends Controller
     {
         $registro = $this->repository->find($id);
         $registro->delete();
-        return redirect()->route('cliente.listar')->with('success','Registro Excluído com sucesso!');
+        return redirect()->route('cliente.listar');
     }
 
     //cancela a operação do usuario
