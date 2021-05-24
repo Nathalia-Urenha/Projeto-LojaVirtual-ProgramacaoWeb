@@ -41,13 +41,13 @@ class ClienteRestController extends Controller
     }
 
     //salvar o registro de um novo cliente
-    public function create(ClienteRequest $request)
+    public function create(Request $request)
     {
         
         $data = $request->all();
         $this->repository->create($data);
 
-        return redirect()->route('cliente.listar')->with('success','Registro Cadastrado com sucesso!');
+        return  response()->json(['mensagem' => 'cadastro realizado com sucesso']);
         
     }
 
@@ -96,7 +96,7 @@ class ClienteRestController extends Controller
     }
 
     //alterar no banco o registro do cliente que modificado pelo usuario - tela
-    public function save(ClienteRequest $request, $id)
+    public function save(Request $request, $id)
     {
         $data = $request->all();
 

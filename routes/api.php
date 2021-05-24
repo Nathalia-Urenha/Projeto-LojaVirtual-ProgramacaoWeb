@@ -26,7 +26,10 @@ use Illuminate\Http\Request;
 //Route::get('/cliente/listar/{page}/{size}/{dir}/{props}', 'Rest\clienteRestController@index');
 
 Route::get('/cliente/listar', 'Rest\ClienteRestController@index');
+Route::post('/cliente/salvar','Rest\ClienteRestController@create');
+
 Route::get('/usuario/listar', 'Rest\UsuarioRestController@index');
+ 
 
 // Route::get('/cliente/alterar/{id}','Rest\clienteRestController@update');
 // Route::get('/cliente/excluir/{id}','Rest\clienteRestController@delete');
