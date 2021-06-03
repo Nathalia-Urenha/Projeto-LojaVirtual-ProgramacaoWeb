@@ -27,11 +27,12 @@ use Illuminate\Http\Request;
 
 Route::get('/cliente/listar', 'Rest\ClienteRestController@index');
 Route::post('/cliente/salvar','Rest\ClienteRestController@create');
+Route::get('/cliente/alterar/{id}','Rest\clienteRestController@update');
+Route::post('/cliente/update/{id}','Rest\clienteRestController@save');
 
 Route::get('/usuario/listar', 'Rest\UsuarioRestController@index');
  
 
-// Route::get('/cliente/alterar/{id}','Rest\clienteRestController@update');
 // Route::get('/cliente/excluir/{id}','Rest\clienteRestController@delete');
 // Route::get('/cliente/consultar/{id}','Rest\clienteRestController@view');
 

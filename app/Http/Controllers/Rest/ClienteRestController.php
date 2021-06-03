@@ -28,7 +28,7 @@ class ClienteRestController extends Controller
     //retorna a pagina de listagem de clientes
     public function index(Request $request)
     {
-       $this->out->writeln("Hello from terminal");
+      // $this->out->writeln("Hello from terminal");
         $registros = $this->repository->paginate();
 
        return response()->json($registros);
@@ -58,12 +58,10 @@ class ClienteRestController extends Controller
         $registro = $this->repository->find($id);
 
         if(!$registro){
-            return redirect()->back();
+            return response()->json(['mensagem' => "Registro não localizado!"]);
         }
 
-        return view('cliente.alterar', [
-            'registro' => $registro,
-        ]);
+        return response()->json(['registro' => $registro]);
     }
 
     //retorna o registro de um cliente para excluir do banco de dados
@@ -104,7 +102,7 @@ class ClienteRestController extends Controller
         
         $registro->update($data);
         
-        return redirect()->route('cliente.listar')->with('success','Registro Alterado com sucesso!');
+        return response()->json(['mensagem' => "Registro alterado com sucesso!"]);
     }
 
     //excluir no banco o registro do autor
